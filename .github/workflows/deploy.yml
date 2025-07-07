@@ -1,4 +1,4 @@
-name: deploy
+name: deploy and build
 
 on:
   push:
@@ -6,11 +6,13 @@ on:
       - main
 
 jobs:  
-  say-hello:
+  say-hello-ECR:
     runs-on: ubuntu-latest
 
     steps:
 
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -19,9 +21,22 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-west-2 
 
-      - name: Verify AWS Identity
-        run: aws sts get-caller-identity
 
-      - name: say hello  
-        run: echo "hello from github Actions!"  
-    
+      - name: Login to Amazon ECR
+        id: ecr-login
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Build, tag, and push Docker image to ECR
+        env:
+          ECR_REGISTRY: ${{ steps.ecr-login.outputs.registry }}
+          ECR_REPOSITORY: my-python-app
+          IMAGE_TAG: latest
+        run: |
+          # Build the Docker image
+          docker build -t $ECR_REPOSITORY:$IMAGE_TAG .
+
+          # Tag the image with the full ECR registry path
+          docker tag $ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+
+          # Push the image to ECR
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
