@@ -60,11 +60,11 @@ jobs:
       - name: Terraform setup
         uses: hashicorp/setup-terraform@v3
 
-      - name: Terraform Init
+      - name: Terraform Init  (with backend)
         run: terraform init -input=false
 
       - name: Terraform Validate
         run: terraform validate -no-color
 
       - name: Terraform Apply
-        run: terraform apply -auto-approve
+        run: terraform apply -auto-approve 

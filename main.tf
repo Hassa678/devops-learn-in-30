@@ -8,7 +8,16 @@ terraform {
   }
 
   required_version = ">= 1.2.0"
+
+  backend "s3" {
+    bucket         = "hassan-terraform-state-2025"
+    key            = "dev/infra/terraform.tfstate"
+    region         = "us-west-2"
+    encrypt        = true
+    dynamodb_table = "terraform-locks-2025"
+  }
 }
+
 
 provider "aws" {
   region = "us-west-2"
