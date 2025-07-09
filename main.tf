@@ -30,11 +30,13 @@ module "vpc" {
 
 
 module "ecs_fargate" {
-  source            = "./modules/ecs_fargate"
-  subnet_id         = module.vpc.subnet_id
-  vpc_id            = module.vpc.vpc_id
-  security_group_id = module.vpc.security_group_id
+  source             = "./modules/ecs_fargate"
+  subnet_id          = module.vpc.subnet_id
+  vpc_id             = module.vpc.vpc_id
+  security_group_id  = module.vpc.security_group_id
+
 }
+
 
 
 

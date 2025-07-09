@@ -62,3 +62,5 @@ resource "aws_ecs_service" "app_service" {
 
   depends_on = [aws_iam_role_policy_attachment.ecs_execution_policy_attach]
 }
+
+
