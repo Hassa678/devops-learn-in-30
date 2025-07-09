@@ -28,7 +28,7 @@ jobs:
         run: terraform init -input=false
 
       - name: Terraform Apply (ECR only)
-        run : terraform apply -target=aws_ecr_repository.my_python_app_repo
+        run : terraform apply -target=aws_ecr_repository.my_python_app_repo -auto-approve 
 
 
       - name: Confirm ECR repository exists
