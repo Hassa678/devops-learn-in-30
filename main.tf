@@ -29,13 +29,14 @@ module "vpc" {
 }
 
 
-module "ec2_instance" {
-  source            = "./modules/ec2_instance"
-  ami_id            = var.ami_id
-  instance_type     = var.instance_type
+module "ecs_fargate" {
+  source            = "./modules/ecs_fargate"
   subnet_id         = module.vpc.subnet_id
+  vpc_id            = module.vpc.vpc_id
   security_group_id = module.vpc.security_group_id
 }
+
+
 
 
 resource "aws_ecr_repository" "my_python_app_repo" {
