@@ -41,7 +41,7 @@ module "ec2_instance" {
 resource "aws_ecr_repository" "my_python_app_repo" {
   name                 = "my-python-app"
   image_tag_mutability = "MUTABLE"
-
+  force_delete = true  
   image_scanning_configuration {
     scan_on_push = true
   }

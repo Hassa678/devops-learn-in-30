@@ -21,6 +21,15 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-west-2 
 
+      - name: Terraform setup
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Init
+        run: terraform init -input=false
+
+      - name: Terraform Apply (ECR only)
+        run: terraform apply -auto-approve -target=aws_ecr_repository.my-python-app
+
 
       - name: Login to Amazon ECR
         id: ecr-login
@@ -60,11 +69,11 @@ jobs:
       - name: Terraform setup
         uses: hashicorp/setup-terraform@v3
 
-      - name: Terraform Init  (with backend)
+      - name: Terraform Init  
         run: terraform init -input=false
 
       - name: Terraform Validate
         run: terraform validate -no-color
 
-      - name: Terraform Apply
+      - name: Terraform Apply Full Terraform Apply
         run: terraform apply -auto-approve 
