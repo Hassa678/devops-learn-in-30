@@ -30,6 +30,9 @@ jobs:
       - name: Terraform Apply (ECR only)
         run: terraform apply -auto-approve -target=aws_ecr_repository.my-python-app
 
+      - name: Confirm ECR repository exists
+        run: aws ecr describe-repositories --repository-names my-python-app --region us-west-2
+
 
       - name: Login to Amazon ECR
         id: ecr-login
