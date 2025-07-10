@@ -2,8 +2,12 @@
 
 Here is the AWS Infrastructure and CI/CD Diagram:
 
-![AWS Infrastructure Diagram](docs/cd.png)
+![AWS Infrastructure Diagram](docs/project-diagram.png)
 
+<<<<<<< HEAD
+=======
+![AWS Infrastructure and CI/CD Diagram](docs/cd.png)
+>>>>>>> 55df400 (Your commit message here)
 
 DevOps Learn in 30 – AWS Infrastructure & CI/CD Project
 Project Overview
