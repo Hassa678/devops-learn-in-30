@@ -1,3 +1,6 @@
+
+![AWS Infrastructure and CI/CD Diagram](docs/devops_infra_diagram.png)
+
 DevOps Learn in 30 – AWS Infrastructure & CI/CD Project
 Project Overview
 This project demonstrates a comprehensive AWS-based DevOps pipeline designed to teach and implement modern infrastructure and continuous integration/continuous deployment (CI/CD) principles. It integrates source control, automated build and deployment pipelines, infrastructure as code, container orchestration, and AWS managed services to provide a robust, scalable, and secure environment for deploying containerized applications.
