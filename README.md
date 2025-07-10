@@ -2,7 +2,7 @@
 
 Here is the AWS Infrastructure and CI/CD Diagram:
 
-![AWS Infrastructure Diagram](docs/devops_infra_diagram.png)
+![AWS Infrastructure Diagram](docs/cd.png)
 
 
 DevOps Learn in 30 – AWS Infrastructure & CI/CD Project
