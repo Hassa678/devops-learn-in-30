@@ -1,5 +1,5 @@
 
-![AWS Infrastructure and CI/CD Diagram](docs/cd.png)
+![AWS Infrastructure and CI/CD Diagram](docs/project-diagram.png)
 
 DevOps Learn in 30 – AWS Infrastructure & CI/CD Project
 Project Overview
